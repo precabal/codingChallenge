@@ -2,6 +2,7 @@ package codingChallenge;
 
 import java.util.PriorityQueue;
 
+//class to calculate running median utilizing two Heaps. 
 public class MedianTracker {
 
 	private PriorityQueue<Integer> minHeap, maxHeap;
@@ -12,6 +13,7 @@ public class MedianTracker {
 		maxHeap = new PriorityQueue<Integer>(200, new MyComparator());
 	}
 	
+	//inserts a new value into the proper heap
 	public void insertValue(int value){ 
 		
 		//compare value to insert with current median and decide what heap it belongs to
@@ -24,7 +26,8 @@ public class MedianTracker {
 		BalanceHeaps();
 		
 	}
-		
+	
+	//blanaces heaps so they have the same number of elements or the closest to that	
 	private void BalanceHeaps(){
 		//If the sizes of the heaps differ by more than one element, extract the min/max from the heap with more elements and insert it into the other heap.
 		if(Math.abs(minHeap.size()-maxHeap.size())>1){
@@ -40,6 +43,7 @@ public class MedianTracker {
 	}
 	
 
+	//calculate the median of the inserted files
 	public float getMedian(){
 		//default value to indicate the heaps are empty
 		float median = -1.0f;
