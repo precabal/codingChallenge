@@ -21,8 +21,8 @@ public class WordCountStats {
 		String inputDir = args[0];
 		String outputDir = args[1];
 		
+		//initialize most important objects
 		FileOutputStream fileOutputStreamMedian = new FileOutputStream(outputDir+"/med_result.txt");
-		
 		FileInputStream	fileInputStream = null;
 		BufferedReader reader = null;
 		
@@ -68,7 +68,11 @@ public class WordCountStats {
 		String line = reader.readLine();
 		if (line == null) return null;
 		
-		//remove punctuation symbols !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+		//get rid of dashes and apostrophes, as per assumptions discused in the FAQ
+		line = line.replaceAll("\\[-']", "");
+		
+		/*replace other punctuation symbols !"#$%&()*+,./:;<=>?@[\]^_`{|}~ for white spaces
+		to make sure that a typo like foo,bar woudl still be recognized as two separate words*/
 		line = line.replaceAll("\\p{Punct}", "");
 
 		//remove extra white spaces
