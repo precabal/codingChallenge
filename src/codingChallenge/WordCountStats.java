@@ -9,7 +9,10 @@ import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.Arrays;
 
-
+/*
+main class that invokes a wordHistogram object to do the word counting task, 
+and a MedianTracker object to calculate the running median. It also handles the file I/O
+*/
 public class WordCountStats {
 
 	public static void main(String[] args)  throws IOException {
@@ -50,7 +53,7 @@ public class WordCountStats {
 				medianTracker.insertValue(numberOfWords);
 				
 				//write current line to median tracker file
-				writeStringToFile(fileOutputStreamMedian, new String(medianTracker.getMedian() + "\n"));
+				writeStringToFile(fileOutputStreamMedian, new String(medianTracker.GetMedian() + "\n"));
 			}	
 			reader.close();
 			fileInputStream.close();

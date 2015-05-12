@@ -17,7 +17,7 @@ public class MedianTracker {
 	public void insertValue(int value){ 
 		
 		//compare value to insert with current median and decide what heap it belongs to
-		if (value >= this.getMedian())
+		if (value >= this.GetMedian())
 			minHeap.add(value);
 		else
 			maxHeap.add(value);
@@ -44,7 +44,7 @@ public class MedianTracker {
 	
 
 	//calculate the median of the inserted files
-	public float getMedian(){
+	public float GetMedian(){
 		//default value to indicate the heaps are empty
 		float median = -1.0f;
 		
